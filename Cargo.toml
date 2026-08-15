@@ -1,0 +1,22 @@
+[package]
+name = "simyo-esim"
+version = "0.1.0"
+edition = "2021"
+description = "Fetch Simyo eSIM info directly from the official API, no third-party server involved"
+license = "MIT"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+qrcode = "0.14"
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls"] }
+rpassword = "7"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1", features = ["v4"] }
+
+[profile.release]
+lto = true
+strip = true
